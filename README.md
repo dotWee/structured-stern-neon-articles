@@ -16,7 +16,7 @@ size_categories:
 
 # Structured Stern NEON Community Articles
 
-This repository contains approximately 5k user written texts,
+This repository contains approximately 7k user written texts,
 articles, and poetry pulled from archives of the Stern NEON website.
 
 Stern NEON was a community platform where users could write and publish their own articles.
