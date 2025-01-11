@@ -87,6 +87,80 @@ The main structure of the dataset is as follows:
 }
 ```
 
+### Example text through API
+
+```bash
+$ curl -X GET "https://datasets-server.huggingface.co/rows?dataset=dotwee%2Fstructured-stern-neon-articles&config=default&split=train&offset=0&length=1" | jq -r '.rows[0].row.text' | awk NF
+Ich
+frage mich, ob das wirklich ich bin. Ob das hier das Ergebnis ist, der
+Schlussstrich, die Summe all dessen, was in einem Leben eben passiert. Die im
+Spiegel, ist die mein Endprodukt?
+     Nein.
+Ich weiß, dass sich noch vieles ändern kann. Ich werde studieren und Freunde
+finden, haben und vergessen. Ich werde arbeiten und Dinge aufbauen und
+abreißen. Kinder haben, Vernünftig sein, aber trotzdem manchmal barfuß durch
+die Straßen schlendern und Sonntagnachts malen.
+     Ich
+bin auf dem Weg dahin, ich weiß auch, dass irgendwann alles so sein wird, weil
+in meinem Leben bisher alles geklappt hat. Weil am Ende immer alle glücklich waren.
+Sorgen hin oder her, am Ende war da eine gute Note, ein Lob, ein bescheidenes
+Lächeln und genug Leute, die mich am Wochenende warm gehalten haben.
+     Jetzt
+fühlt sich alles an wie bergab-gehen. Und immer wieder gehe ich in die Welt
+hinaus, um das Schicksal herauszufordern, mich im Moment zu drehen, bis die
+Lichter verschwimmen, bis die Decke an mir vorbeizieht, bis die Sterne hell
+genug sind, um zum Gesprächsthema zu werden.
+     Ich
+weiß doch, dass Feierei und Leben nicht das gleiche ist. Dass es mehr gibt. Dass
+mich Alkohol und Zigaretten und Gras gar nicht zu mir selbst führen, eher von
+mir weg. Warum mache ich mir nicht mal Gedanken, statt nächtelang wieder alles auszublenden?
+     Keine
+Ahnung. Ist mir auch egal. Ich lese von Menschen, die Abstürzen und später
+reich werden. Ich habe Angst um meine Zukunft aber es hat ja sonst immer alles
+geklappt, diesmal auch, ganz sicher. Ich weiß, dass mich ein bisschen Absturz
+am Wochenende nicht zum Sünder macht, eine Party mehr macht keinen No-Future
+aus mir. Ich weiß das doch.
+     Und
+wenn ich wieder morgens aufwache und ich erinnere mich an die Szenarien der
+vergangenen Nacht. Kopf über der Klobrille, schon wieder, schon wieder, so wie
+jede Woche: am Ende wird sich übergeben und ab ins Bett. Und meine Freunde
+machen schon Witze und sie halten mir die Haare. Sie sagen, eine Party, an der
+ich nicht kotze, ist keine Party. Und ich finde das peinlich und verdammt
+traurig. Das will ich doch nicht sein. Ich will an meine Grenzen gehen, ohne
+sie zu erreichen. Eigentlich will ich einfach gar keine Grenzen haben.
+     Und
+ich nehme mir vor, jetzt wird alles anders. Ich nehme mir vor, dass Musik und
+Liebe und Tanzen doch genug ist. Aber ist es eben nicht. Ich will mehr sein,
+ich will überall sein, gleichzeitig und ich kann mich nie entscheiden. Ich weiß
+doch, dass das alles normal ist, nur eine weitere Teenager-Geschichte, die
+tausendste Sinnsuche, nur ein anderes Mädchen mit Augenringen und zu viel
+Altglas in der Küche.
+     Ich
+bin mir gar nicht sicher, ob ich hier wirklich raus will. Abenteuer und mit
+fremden Menschen tanzen, das wolltest du doch. Das alles hast du dir gewünscht.
+Ich meinte doch selber immer, dass ich Vernunft doof finde. Schlecht für die
+Zähne, zu dünn, ungesund und tote Gehirnzellen. War mir doch egal. Ist es auch
+immer noch.
+     Sonst
+würde ich nächste Freitag-Nacht nicht das gleiche wieder tun. Wieder am Ende
+mit ausgekotztem Magen im nächsten Fastfood-Laden landen. Über die miese Musik
+ablästern, nach Hause taumeln oder mich tragen lassen, von Freunden. Mit Tüte
+in der Hand, nur für den Fall.
+     Klingt
+ja widerlich. Aber am nächsten Tag wird ja doch noch gelacht. So endet das doch
+immer. Am Ende lachen alle und wieder nichts gelernt. Braucht man doch auch
+nicht.
+     Am
+Ende werde ich doch in einem Reihenhaus leben und Apfelkuchen backen und
+Arzttermine in meinen Kalender eintragen. Am Ende wird alles gut und
+langweilig, dafür darf jetzt alles aufregend sein und beschissen.
+     Die,
+die ich jetzt bin, ist ja noch nicht das Endprodukt. Das wird alles noch. Macht
+euch keine Sorgen, so will ich ja langfristig gar nicht bleiben. Irgendwann
+wird doch alles besser und gut und dann werde ich auch gesünder aussehen.
+Morgen fängt das schon an.
+```
+
 ## Dataset Creation
 
 ### Curation Rationale
