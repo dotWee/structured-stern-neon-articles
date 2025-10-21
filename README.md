@@ -1,15 +1,20 @@
 ---
-license: unknown
+license: wtfpl
 task_categories:
 - text-classification
-- question-answering
+- summarization
 - text-generation
-- text2text-generation
+- sentence-similarity
 language:
 - de
+- en
 tags:
 - art
-pretty_name: Structured Stern NEON Community Articles
+- poetry
+- literature
+- articles
+- opinion
+pretty_name: Stern NEON Articles
 size_categories:
 - 10K<n<100K
 ---
@@ -160,6 +165,59 @@ euch keine Sorgen, so will ich ja langfristig gar nicht bleiben. Irgendwann
 wird doch alles besser und gut und dann werde ich auch gesünder aussehen.
 Morgen fängt das schon an.
 ```
+
+## JSONL Normalization Script
+
+A Python script (`normalize_jsonl.py`) is included in this repository to help clean and prepare the dataset for LLM fine-tuning. This script uses an OpenAI-compatible API to normalize the `text` field of each entry, ensuring high-quality, consistent data for model training.
+
+### Features
+- **Filters entries**: Skips entries with empty or missing `text` fields
+- **State tracking**: Skips already processed entries (marked as normalized or failed) to avoid duplicate work and API calls
+- **AI-powered normalization**: Uses OpenAI or compatible APIs to clean, standardize, and preserve the literary quality of the text
+- **Error handling**: Entries that fail normalization are saved to a separate file
+- **Progress logging**: Detailed logs and progress updates are written to `normalize_log.txt`
+- **Rate limiting**: Adjustable delay between API calls to respect rate limits
+- **Force reprocessing**: Optionally reprocess all entries, ignoring previous state
+
+### Usage
+
+1. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **Set your API key**
+   - Export as environment variable: `export OPENAI_API_KEY="your-api-key"`
+   - Or use the `--api-key` flag
+3. **Run the script**
+   ```bash
+   python normalize_jsonl.py stern_neon_user_poetry.jsonl
+   ```
+   This will create:
+   - `normalized_entries.jsonl` — Successfully normalized entries
+   - `failed_normalizations.jsonl` — Entries that failed normalization
+   - `normalize_log.txt` — Detailed log of the process
+
+#### Command Line Options
+- `input_file` — Path to input JSONL file (required)
+- `-o, --output` — Output file for normalized entries (default: normalized_entries.jsonl)
+- `-f, --failed` — Output file for failed entries (default: failed_normalizations.jsonl)
+- `-k, --api-key` — OpenAI API key (or set OPENAI_API_KEY env var)
+- `-u, --base-url` — Base URL for OpenAI-compatible API (for local models, etc.)
+- `-m, --model` — Model to use (default: gpt-3.5-turbo)
+- `--max-entries` — Maximum entries to process (for testing)
+- `--delay` — Delay between API calls in seconds (default: 0.5)
+- `--force-reprocess` — Force reprocessing of already normalized entries
+
+#### State Handling & Resume
+- The script automatically skips already processed entries (normalized or failed), allowing you to resume processing if interrupted.
+- To reprocess all entries, use the `--force-reprocess` flag.
+
+#### Example
+```bash
+python normalize_jsonl.py stern_neon_user_poetry.jsonl --max-entries 10
+```
+
+See the script source for more details and customization options.
 
 ## Dataset Creation
 

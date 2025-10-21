@@ -1,0 +1,44 @@
+name: structured-stern-neon-articles
+
+services:
+  mongo:
+    image: mongodb/mongodb-community-server:latest
+    restart: always
+    env_file:
+      - mongodb.env
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - mongo_network
+
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - "8081:8081"
+    
+    environment:
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
+      ME_CONFIG_MONGODB_AUTH_USERNAME: admin
+      ME_CONFIG_MONGODB_AUTH_PASSWORD: password
+      ME_CONFIG_MONGODB_URL: mongodb://admin:password@mongo:27017/
+
+      ME_CONFIG_BASICAUTH_ENABLED: true
+      ME_CONFIG_BASICAUTH_USERNAME: mongoexpressuser
+      ME_CONFIG_BASICAUTH_PASSWORD: mongoexpresspass
+
+    depends_on:
+      - mongo
+    
+    networks:
+      - mongo_network
+
+
+networks:
+  mongo_network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
