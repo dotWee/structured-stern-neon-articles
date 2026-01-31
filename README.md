@@ -1,22 +1,25 @@
 ---
 license: wtfpl
 task_categories:
-- text-classification
-- summarization
-- text-generation
-- sentence-similarity
+    - text-classification
+    - summarization
+    - text-generation
+    - sentence-similarity
 language:
-- de
-- en
+    - de
+    - en
 tags:
-- art
-- poetry
-- literature
-- articles
-- opinion
+    - art
+    - poetry
+    - literature
+    - articles
+    - opinion
+    - fine-tuning
+    - lora
+    - instruction-tuning
 pretty_name: Stern NEON Articles
 size_categories:
-- 10K<n<100K
+    - 10K<n<100K
 ---
 
 # Structured Stern NEON Community Articles
@@ -47,6 +50,7 @@ This dataset can be used for text classification, question answering, text gener
 - **Question Answering**: The dataset can be used to train a model to answer questions about the articles.
 - **Text Generation**: The dataset can be used to train a model to generate new articles.
 - **Text-to-Text Generation**: The dataset can be used to train a model to generate summaries of the articles.
+- **Fine-Tuning / LoRA**: The dataset can be converted to instruction format for fine-tuning LLMs (see [Instruction-Tuned Dataset Generation](#instruction-tuned-dataset-generation) below).
 
 ### Out-of-Scope Use
 
@@ -78,17 +82,17 @@ The main structure of the dataset is as follows:
 
 ```json
 {
-  "created":1190362560,
-  "author":"Wortfechter",
-  "profile_url":"http://www.neon.de/user/Wortfechter",
-  "title":"Kopftuch im Flughafen",
-  "subtitle":"In Teheran ist das Kopftuch gesetzlich vorgeschrieben. Auch im Flughafen.",
-  "text":"Auf unserem Weg nach Kambodscha führte uns unser Flug über Teheran nach Bangkok. Das erste, was wir auf unserer Reise also zu sehen bekommen sollten, war der Sicherheitsbereich im Imam Khomeini Airport in Teheran. Alle Mädels waren bestens ausgerüstet mit langen Klamotten und Tüchern, die sie mehr oder weniger professionell um ihren Kopf zu wickeln versuchten. Da in Teheran das Kopftuch für Frauen gesetzlich vorgeschrieben ist, mussten auch wir auf dem Flughafen alles außer unserer Hände und Gesichter verdecken.\n   \n\n   Als ich nun also mehr schlecht als recht eingewickelt aus dem Flugzeug stolperte, wurde ich vom Passkontrolleur erstmal gefragt, ob ich denn Muslimin sei. Auf meine Verneinung hin wollte er wissen, warum ich denn dann ein Kopftuch trage. Sehr witzig, der Mann.\n   \n   Im Flughafen war es natürlich warm, unter den Kopftüchern war es natürlich noch wärmer und in langen Klamotten erst recht. Zunächst wurden wir mit riesigen Muffins und Kaffee/Cola/Wasser for free doch recht nett begrüßt, doch nach einigen Stunden wurde es verdammt nervig. Es würde mich nicht wundern, wenn einige der Mädels eine richtige Abneigung entwickeln würden gegen dieses Land, in dem man als Frau selbst auf dem Flughafen alles außer der Hände und dem Gesicht verdecken muss. Nicht, dass wir halbnackt durch den Flughafen hüpfen wollten, aber bei den Temperaturen wäre ein T-Shirt schon was Feines gewesen. Im Flugzeug wurden vorsorglich an alle Unwissenden Kittel verteilt, auf dem Rückflug gab es sogar Kopftücher, dafür aber auch deutsche Touris, die aussahen, als würden sie in Thailand einen ganz bestimmten Tourismus pflegen und unsere Mädels anpöbelten, weil sie \"zu lange\" am öffentlichen internetfähigen Rechner standen.\n   \n   Als wir die Kopftücher nach einiger Zeit lüfteten, wurden wir gleich dezent darauf hingewiesen, dass es Vorschrift sei, sie zu tragen. Keine Begründung. Einfach nur \"That's a rule\" - and that's it.\n   \n\n   Bei allem Verständnis für andere Kulturen und Sitten fühlte ich mich - unter meinem Kopftuch schwitzend - ein wenig in meiner persönlichen Freiheit eingeschränkt.",
-  "url":"http://www.neon.de:80/artikel/kaufen/reise/kopftuch-im-flughafen/652640",
-  "archive_url":"https://web.archive.org/web/20140815233601/http://www.neon.de:80/artikel/kaufen/reise/kopftuch-im-flughafen/652640",
-  "main_category":"kaufen",
-  "sub_category":"reise",
-  "id":652640
+    "created": 1190362560,
+    "author": "Wortfechter",
+    "profile_url": "http://www.neon.de/user/Wortfechter",
+    "title": "Kopftuch im Flughafen",
+    "subtitle": "In Teheran ist das Kopftuch gesetzlich vorgeschrieben. Auch im Flughafen.",
+    "text": "Auf unserem Weg nach Kambodscha führte uns unser Flug über Teheran nach Bangkok. Das erste, was wir auf unserer Reise also zu sehen bekommen sollten, war der Sicherheitsbereich im Imam Khomeini Airport in Teheran. Alle Mädels waren bestens ausgerüstet mit langen Klamotten und Tüchern, die sie mehr oder weniger professionell um ihren Kopf zu wickeln versuchten. Da in Teheran das Kopftuch für Frauen gesetzlich vorgeschrieben ist, mussten auch wir auf dem Flughafen alles außer unserer Hände und Gesichter verdecken.\n   \n\n   Als ich nun also mehr schlecht als recht eingewickelt aus dem Flugzeug stolperte, wurde ich vom Passkontrolleur erstmal gefragt, ob ich denn Muslimin sei. Auf meine Verneinung hin wollte er wissen, warum ich denn dann ein Kopftuch trage. Sehr witzig, der Mann.\n   \n   Im Flughafen war es natürlich warm, unter den Kopftüchern war es natürlich noch wärmer und in langen Klamotten erst recht. Zunächst wurden wir mit riesigen Muffins und Kaffee/Cola/Wasser for free doch recht nett begrüßt, doch nach einigen Stunden wurde es verdammt nervig. Es würde mich nicht wundern, wenn einige der Mädels eine richtige Abneigung entwickeln würden gegen dieses Land, in dem man als Frau selbst auf dem Flughafen alles außer der Hände und dem Gesicht verdecken muss. Nicht, dass wir halbnackt durch den Flughafen hüpfen wollten, aber bei den Temperaturen wäre ein T-Shirt schon was Feines gewesen. Im Flugzeug wurden vorsorglich an alle Unwissenden Kittel verteilt, auf dem Rückflug gab es sogar Kopftücher, dafür aber auch deutsche Touris, die aussahen, als würden sie in Thailand einen ganz bestimmten Tourismus pflegen und unsere Mädels anpöbelten, weil sie \"zu lange\" am öffentlichen internetfähigen Rechner standen.\n   \n   Als wir die Kopftücher nach einiger Zeit lüfteten, wurden wir gleich dezent darauf hingewiesen, dass es Vorschrift sei, sie zu tragen. Keine Begründung. Einfach nur \"That's a rule\" - and that's it.\n   \n\n   Bei allem Verständnis für andere Kulturen und Sitten fühlte ich mich - unter meinem Kopftuch schwitzend - ein wenig in meiner persönlichen Freiheit eingeschränkt.",
+    "url": "http://www.neon.de:80/artikel/kaufen/reise/kopftuch-im-flughafen/652640",
+    "archive_url": "https://web.archive.org/web/20140815233601/http://www.neon.de:80/artikel/kaufen/reise/kopftuch-im-flughafen/652640",
+    "main_category": "kaufen",
+    "sub_category": "reise",
+    "id": 652640
 }
 ```
 
@@ -166,11 +170,108 @@ wird doch alles besser und gut und dann werde ich auch gesünder aussehen.
 Morgen fängt das schon an.
 ```
 
+## Instruction-Tuned Dataset Generation
+
+The repository includes a script to convert the raw articles into instruction-tuned formats suitable for fine-tuning LLMs with LoRA or other methods.
+
+### Supported Output Formats
+
+| Format       | Description                     | Use With                     |
+| ------------ | ------------------------------- | ---------------------------- |
+| `alpaca`     | Instruction/Input/Output format | Most trainers, LLaMA-Factory |
+| `chat`       | ChatML messages format          | Chat model fine-tuning       |
+| `sharegpt`   | ShareGPT conversations format   | Axolotl, Unsloth             |
+| `completion` | Simple text completion format   | Basic text generation        |
+
+### Usage
+
+```bash
+# Install dependencies (uses only Python stdlib)
+pip install -r scripts/requirements.txt
+
+# Generate Alpaca format (default)
+python scripts/generate_instructions.py stern_neon_user_poetry.jsonl -o neon_alpaca.jsonl
+
+# Generate ShareGPT format for Axolotl/Unsloth
+python scripts/generate_instructions.py stern_neon_user_poetry.jsonl -o neon_sharegpt.jsonl -f sharegpt
+
+# Filter by text length (500-5000 characters)
+python scripts/generate_instructions.py stern_neon_user_poetry.jsonl -o neon_filtered.jsonl --min-length 500 --max-length 5000
+```
+
+### Command Line Options
+
+| Option         | Description                                               | Default    |
+| -------------- | --------------------------------------------------------- | ---------- |
+| `input`        | Path to input JSONL file                                  | (required) |
+| `-o, --output` | Path to output JSONL file                                 | (required) |
+| `-f, --format` | Output format: `alpaca`, `chat`, `sharegpt`, `completion` | `alpaca`   |
+| `--min-length` | Minimum text length in characters                         | `100`      |
+| `--max-length` | Maximum text length in characters                         | No limit   |
+| `--seed`       | Random seed for reproducibility                           | `42`       |
+
+### Example Output (Alpaca Format)
+
+```json
+{
+    "instruction": "Schreibe einen Artikel mit dem Titel: \"Morgen.\"",
+    "input": "",
+    "output": "Ich frage mich, ob das wirklich ich bin...",
+    "metadata": {
+        "title": "Morgen.",
+        "author": "entfesselt",
+        "category": "Gefühle / Erwachsenwerden",
+        "id": 988270
+    }
+}
+```
+
+### Example Output (ShareGPT Format)
+
+```json
+{
+    "conversations": [
+        {
+            "from": "system",
+            "value": "Du bist ein kreativer Autor im Stil der Stern NEON Community..."
+        },
+        {
+            "from": "human",
+            "value": "Schreibe einen Artikel mit dem Titel: \"Morgen.\""
+        },
+        { "from": "gpt", "value": "Ich frage mich, ob das wirklich ich bin..." }
+    ],
+    "id": "neon_988270"
+}
+```
+
+### Instruction Templates
+
+The script uses varied instruction templates to improve model generalization:
+
+- Title-based: _"Schreibe einen Artikel mit dem Titel: {title}"_
+- Category-based: _"Schreibe einen persönlichen Artikel über {category}."_
+- Combined: _"Schreibe einen {category}-Artikel mit dem Titel {title}."_
+- With context: _"Schreibe einen Artikel mit dem Titel {title}. Thema: {subtitle}"_
+
+### Training Recommendations
+
+For fine-tuning with LoRA, we recommend:
+
+1. **Base Models**: Llama 3 8B, Mistral 7B, or German models like LeoLM
+2. **Training Frameworks**:
+    - [Unsloth](https://github.com/unslothai/unsloth) — Fastest, 2x speed, use `sharegpt` format
+    - [Axolotl](https://github.com/OpenAccess-AI-Collective/axolotl) — Most flexible, use `sharegpt` format
+    - [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) — Use `alpaca` format
+
+---
+
 ## JSONL Normalization Script
 
 A Python script (`normalize_jsonl.py`) is included in this repository to help clean and prepare the dataset for LLM fine-tuning. This script uses an OpenAI-compatible API to normalize the `text` field of each entry, ensuring high-quality, consistent data for model training.
 
 ### Features
+
 - **Filters entries**: Skips entries with empty or missing `text` fields
 - **State tracking**: Skips already processed entries (marked as normalized or failed) to avoid duplicate work and API calls
 - **AI-powered normalization**: Uses OpenAI or compatible APIs to clean, standardize, and preserve the literary quality of the text
@@ -182,22 +283,23 @@ A Python script (`normalize_jsonl.py`) is included in this repository to help cl
 ### Usage
 
 1. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 2. **Set your API key**
-   - Export as environment variable: `export OPENAI_API_KEY="your-api-key"`
-   - Or use the `--api-key` flag
+    - Export as environment variable: `export OPENAI_API_KEY="your-api-key"`
+    - Or use the `--api-key` flag
 3. **Run the script**
-   ```bash
-   python normalize_jsonl.py stern_neon_user_poetry.jsonl
-   ```
-   This will create:
-   - `normalized_entries.jsonl` — Successfully normalized entries
-   - `failed_normalizations.jsonl` — Entries that failed normalization
-   - `normalize_log.txt` — Detailed log of the process
+    ```bash
+    python normalize_jsonl.py stern_neon_user_poetry.jsonl
+    ```
+    This will create:
+    - `normalized_entries.jsonl` — Successfully normalized entries
+    - `failed_normalizations.jsonl` — Entries that failed normalization
+    - `normalize_log.txt` — Detailed log of the process
 
 #### Command Line Options
+
 - `input_file` — Path to input JSONL file (required)
 - `-o, --output` — Output file for normalized entries (default: normalized_entries.jsonl)
 - `-f, --failed` — Output file for failed entries (default: failed_normalizations.jsonl)
@@ -209,10 +311,12 @@ A Python script (`normalize_jsonl.py`) is included in this repository to help cl
 - `--force-reprocess` — Force reprocessing of already normalized entries
 
 #### State Handling & Resume
+
 - The script automatically skips already processed entries (normalized or failed), allowing you to resume processing if interrupted.
 - To reprocess all entries, use the `--force-reprocess` flag.
 
 #### Example
+
 ```bash
 python normalize_jsonl.py stern_neon_user_poetry.jsonl --max-entries 10
 ```

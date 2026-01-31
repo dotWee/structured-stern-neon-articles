@@ -2,4 +2,9 @@ pymongo
 aiohttp
 requests
 
+# For instruction dataset generation (no extra deps needed, stdlib only)
+# Optional: for dataset validation and HuggingFace upload
+# datasets
+# huggingface_hub
+
 

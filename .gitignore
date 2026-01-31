@@ -1,1 +1,9 @@
 **/*.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+*.jsonl
+!stern_neon_user_poetry.jsonl
